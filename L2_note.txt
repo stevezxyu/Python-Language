@@ -1,0 +1,215 @@
+﻿# L2-1
+
+print(7 in [5, 6])
+print(True and False)    # and 只要有一邊是 False, output就會是 False
+print(True & False)      # and equal "&"
+print(True or False)     # or 只要有一邊是 True, output就會是 True
+print(True | False)      # or equal "|"
+print(not False)
+
+
+McD = 'I\'m loving it!'   # 使用""含括字串, "'" or "\'" 就能顯示在字串內 
+print(McD)
+
+sentence = "I do not think you will be just \"anybody\"."    # 字串內要顯示"", 使用\"\"含括字串
+print(sentence)
+
+nb = "no\te\nbook"       # \t 是tab, \n 是換行
+print(nb)
+
+
+pi = 3.141591
+str_obj = "圓周率"
+
+print("圓周率是: %s" % pi)             # %s 可挖空填入字串, 將要填入的檔案書入在 %之後
+print("圓周率是: %.2f" % pi)           # %f 保留小數點
+print("%s是: %.2f" % (str_obj, pi))
+
+=======================================================================================
+# L2-2
+
+team_name = "Chicago Bulls"
+wins = 72
+losses = 10
+win_percentage = wins / (wins + losses)
+is_champion = True
+
+chicago_bulls = [team_name, wins, losses, win_percentage, is_champion]
+print(type(chicago_bulls))
+print(chicago_bulls)
+print(chicago_bulls[0])
+print(chicago_bulls[-2])
+
+
+# 練習 1
+# 建立一個 list 叫做 friends_list 儲存這些資訊
+genre = "SitCom"
+seasons = 10
+episodes = 236
+stars = ["Jennifer Aniston", "Courteney Cox", "Lisa Kudrow",
+"Matt LeBlanc", "Matthew Perry", "David Schwimmer"]
+
+# 將季數與 "Matthew Perry" 印出, Python 的索引值從 0 開始算
+print(stars[4])
+
+# list 容納不同的變數類型（str, int, float, bool, complex）
+friends_list = (genre, seasons, episodes, stars)
+print("六人行有幾季: %i 季" % friends_list[1])
+print("誰飾演 Chandler Bing: %s" % friends_list[-1][-2])
+# [-1]表示 friends_list最後一個元素 list, 擷取 stars這個 list,  [-2] 表示 stars最後第二個元素 list, 擷取出 "Matthew Perry"
+
+# tuple跟 list 很像，但是我們不能新增，刪除或者更新 tuple 的元素
+friends_list = (genre, seasons, episodes, stars)
+friends_tuple = tuple(friends_list)
+print(friends_tuple)
+
+
+# 練習2
+team_name = "Chicago Bulls"
+wins = 72
+losses = 10
+win_percentage = wins / (wins + losses)
+is_champion = True
+
+# use list
+chicago_bulls_list = [team_name, wins, losses, win_percentage, is_champion]
+season = "1995-96"
+chicago_bulls_list.append(season)
+print(chicago_bulls_list)
+
+# use tuple
+chicago_bulls_list = [team_name, wins, losses, win_percentage, is_champion]
+chicago_bulls_tuple = tuple(chicago_bulls_list)
+season = "1995-96"
+chicago_bulls_list.append(season)
+print(chicago_bulls_list)
+
+
+# dict 帶有鍵值（key）的 list, 建立時使用大括號 {}
+team_name = "Chicago Bulls"
+wins = 72
+losses = 10
+win_percentage = wins / (wins + losses)
+is_champion = True
+
+chicago_bulls = {
+    "team_name": "Chicago Bulls",
+    "wins": 72,
+    "losses" : 10,
+    "is_champion": True
+}
+
+print(type(chicago_bulls))
+print(chicago_bulls["losses"])  # 擷取 key的 value, 不須透過 list
+
+
+# 練習3
+# 建立一個 dict 叫做 friends_dict 儲存這些資訊
+genre = "SitCom"
+seasons = 10
+episodes = 236
+stars = ["Jennifer Aniston", "Courteney Cox", "Lisa Kudrow",
+"Matt LeBlanc", "Matthew Perry", "David Schwimmer"]
+
+friends_dict = {
+    "genre": genre,
+    "seasons": seasons,
+    "episodes": episodes,
+    "stars": stars
+}
+
+# 建立好以後，請將季數與 "Lisa Kudrow" 印出
+print("六人行有 %i 集" % friends_dict["episodes"])
+print("Phoebe Buffay 由 %s 飾演" % friends_dict["stars"][2])
+
+
+# list
+rgb = ["red", "green", "blue", "blue", "green", "red"]
+print(type(rgb))   # 用 type 檢查是 list格式
+print(len(rgb))    # len 會回傳物件 lsit有幾個元素
+
+# set 存放唯一值（unique values）的結構, 建立時使用大括號 {}
+# rgb = {"red", "green", "blue", "blue", "green", "red"}   
+# {} 字典 or 及何時使用
+
+rgb = set(rgb)
+print(type(rgb))   # 用 type 檢查是 set格式
+print(len(rgb))    # len 會回傳物件 set有幾個元素      
+
+=======================================================================================
+# L2-3
+
+weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+
+# 迴圈結構
+for weekday in weekdays:
+    print(weekday)
+
+
+weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+
+for ind in range(5):
+    print(weekdays[ind])       # 先 build這段 code, ind = index, interater
+print(ind)
+
+
+print(range(5))
+print(list(range(5)))          # python3 必須轉換成 list形式
+print(list(range(1, 5, 2)))    # range 可產生公差
+
+
+tw_dict = {
+    "country": "Taiwan",
+    "city":"Taipei"
+}
+
+print(list(tw_dict.items()))
+
+for (key, value) in (tw_dict.keys(), tw_dict.values()):
+    print("%s:%s" % (key, value))
+
+
+# 練習1 用 for 迴圈計算 1 加到 100
+one_to_hundred = range(1,101)     # 101 不被 range包括, 先用 list(range(1,101)) print驗證
+summation = 0
+
+for element in one_to_hundred:
+    summation += element
+
+print(summation)
+
+
+# 練習2 用 for 迴圈計算 1 到 100 的數字個數
+cnt = 0
+
+for element in range(1,101):
+    cnt += 1
+
+print(cnt)
+
+
+# 練習3 用 for 迴圈計算 10!
+factorial = 1
+
+for element in range(1,11):
+    factorial *= element
+
+print(factorial)
+
+
+# 練習4 用 for 迴圈計算 1 到 100 的平均數
+summation = 0
+cnt = 0
+
+for element in range(1, 101):
+    summation += element
+    cnt += 1
+    
+avg = summation / cnt
+print(avg)
+
+
+
+
+
+
