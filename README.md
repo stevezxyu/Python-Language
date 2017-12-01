@@ -1,2 +1,2 @@
-# my_Python
-This is my python languages in NTU CSIE.
+# Python-Language
+This is my Python-Language code in NTU CSIE.
