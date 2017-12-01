@@ -1,2 +1,2 @@
 # Python-Language
-This is my Python-Language code in NTU CSIE.
+This is my python-language code in NTU CSIE.
